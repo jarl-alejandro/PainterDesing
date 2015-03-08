@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Registrate
+{% endblock title %}
+
+{% block content %}
+	<h1>Registarte</h1>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			{{ user_register.as_table }}
+		</table>
+		<input type="submit" />
+	</form>
+{% endblock content %}

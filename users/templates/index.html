@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Inicio
+{% endblock title %}
+
+{% block content %}
+	<h1>Welcome {{ user }}</h1>
+	<img src="{{ user.avatar.url }}" />
+	<a href="{% url 'logout' %}">Salir</a>
+{% endblock content %}
