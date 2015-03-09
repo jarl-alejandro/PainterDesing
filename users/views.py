@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 
 from .models import User
@@ -25,7 +24,7 @@ def user_registration(request):
 			if user is not None:
 				login(request, user)
 				
-			return redirect("/")
+			return redirect("/app/")
 	else:
 		user_register = UserRegistrationForm()
 		return render(request, "register.html", { 'user_register':user_register })
@@ -43,7 +42,7 @@ def user_login(request):
 			if user is not None:
 				login(request, user)
 
-			return redirect("/")
+			return redirect("/app/")
 	else:
 		login_form = LoginForm()
 		return render(request, "login.html", { "login_form":login_form })						
@@ -51,7 +50,3 @@ def user_login(request):
 def LogOut(request):
 	logout(request)
 	return redirect("/")
-
-@login_required(login_url = "/login/")
-def index(request):
-	return render(request, "index.html")

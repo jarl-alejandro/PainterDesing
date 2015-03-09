@@ -6,18 +6,25 @@ class UserRegistrationForm(forms.ModelForm):
 		model = User
 		fields = ("email", "password" ,"nombre", "apellido", "avatar")
 		widgets = {
-			'email' : forms.TextInput(attrs = 
-			{
+			'email' : forms.TextInput(attrs = {
 				'class' : "emailRegistration",
 				'placeholder' : "Ingresa un email",
 				'type' : "email",
 			}),
 
-			"password" :  forms.TextInput(attrs = 
-			{
+			"password" :  forms.TextInput(attrs = {
 				'class' : "passwordRegistratio",
 				'placeholder':"Ingresa un password",
 				'type': "password"
+			}),
+			'nombre' : forms.TextInput(attrs = {
+				'class' : "nombreRegistration",
+				'placeholder' : "Ingresa un nombre"
+			}),
+
+			"apellido" :  forms.TextInput(attrs = {
+				'class' : "apellidoRegistratio",
+				'placeholder':"Ingresa un apellido"
 			}),
 		}
 

@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "base_photo.html" %}
 
 {% block title %}
-	Inicio
+	App
 {% endblock title %}
 
 {% block content %}
 	<h1>Welcome {{ user }}</h1>
-	<img src="{{ user.avatar.url }}" />
 	<a href="{% url 'logout' %}">Salir</a>
+	<img src="{{ user.avatar.url }}">
 {% endblock content %}
