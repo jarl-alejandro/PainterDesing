@@ -41,8 +41,9 @@ def user_login(request):
 			user = authenticate(email = email, password = password)
 			if user is not None:
 				login(request, user)
-
-			return redirect("/app/")
+				return redirect("/app/")
+			else:
+				return redirect("/login/")
 	else:
 		login_form = LoginForm()
 		return render(request, "login.html", { "login_form":login_form })						
