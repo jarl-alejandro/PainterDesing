@@ -8,4 +8,19 @@
 	<h1>Welcome {{ user }}</h1>
 	<a href="{% url 'logout' %}">Salir</a>
 	<img src="{{ user.avatar.url }}">
+	<a href="{% url 'upload' %}">Subir foto</a>
+	<hr />	
+	<section>
+		{% for photo in photos  %}
+			<article>
+				<figure class="photo">
+					<img src="{{ photo.image.url }}">
+					<figcaption>
+						<p>{{ photo.user }}</p>
+						<p>{{ photo.user.nombre }} {{ photo.user.apellido }}</p>
+					</figcaption>
+				</figure>
+			</article>
+		{% endfor %}
+	</section>
 {% endblock content %}
