@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 
 from .mixins import LoginRequired
 from .models import Photo
@@ -8,17 +8,10 @@ from .forms import UploadPhotoForm
 class LandingView(TemplateView):
 	template_name = "landing.html"
 
-class App(LoginRequired, TemplateView):
+class App(LoginRequired, ListView):
+	model = Photo
 	template_name = "app.html"
-
-	def get_context_data(self, **kwargs):
-		context = super(App, self).get_context_data(**kwargs)
-		photos = Photo.objects.all()
-
-		data = { 'photos':photos }
-
-		context.update(data)
-		return context
+	context_object_name = "photos" 
 
 class UploadPhotView(LoginRequired, CreateView):
 	model = Photo
