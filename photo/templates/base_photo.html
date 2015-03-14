@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+{% load static from staticfiles %}
 	<meta charset="utf-8" />
 	<title>
 		{% block title %}
 			
 		{% endblock title %}
 	</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/photo.css' %}">
 </head>
 <body>
 {% block content %}

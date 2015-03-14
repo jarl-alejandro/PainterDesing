@@ -32,11 +32,13 @@ class LoginForm(forms.Form):
 	email = forms.CharField(max_length = 200, 
 		widget = forms.TextInput(attrs = {
 			'class' : "emailLogin",
-			'type': "email"
+			'type': "email",
+			'placeholder': "Escribe tu email"
 		}))
 
 	password = forms.CharField(max_length = 200, 
 		widget = forms.TextInput(attrs = {
 			'class' : "passwordLogin",
-			'type' : "password"
+			'type' : "password",
+			'placeholder': "Escribe tu password"
 		}))

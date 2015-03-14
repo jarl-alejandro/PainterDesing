@@ -9,6 +9,7 @@
 	<a href="{% url 'logout' %}">Salir</a>
 	<img src="{{ user.avatar.url }}">
 	<a href="{% url 'upload' %}">Subir foto</a>
+	<a href="{% url 'profile' %}">Perfil</a>
 	<hr />	
 	<section>
 		{% for photo in photos  %}
